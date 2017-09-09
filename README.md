@@ -32,11 +32,19 @@ With Docker
 `sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service`
 
 ## Usage ##
-The project allows for users to obtain a directory listing of a specified path as either HTML, or JSON.
-Specify the required format in the "accept" header of the HTTP request.
+The project allows for users to obtain a directory listing of a specified path.
+This is achieved by connecting to the host on port 8080.
+For the rest of this documentation we assume we are connecting to localhost, but any local IP address can also be used.
+The directory listing can be obtained as either HTML, or JSON.
+To distinguish between these formats, specify the required format in the "accept" header of the HTTP request.
 For example:
 
-* `curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem` returns the directory listing of the root of the local file system (on the host machine) in JSON format
+For obtaining the directory listing in JSON format:
+
+* `curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem`
+
+For obtaining the directory listing in HTML format:
+
 * `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem` returns the directory listing of the root of the local file system (on the host machine) in HTML format
 
 ### HTML ###
