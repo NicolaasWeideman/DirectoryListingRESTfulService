@@ -45,7 +45,7 @@ For obtaining the directory listing in JSON format:
 
 For obtaining the directory listing in HTML format:
 
-* `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem` returns the directory listing of the root of the local file system (on the host machine) in HTML format
+* `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem`
 
 ### HTML ###
 Specifying HTML as the required format allows the service to be used through a web browser.
