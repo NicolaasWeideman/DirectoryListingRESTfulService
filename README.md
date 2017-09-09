@@ -12,15 +12,15 @@ This project requires the following tools to be installed in order to be built.
 ## Setup ##
 Build the gradle wrapper
 
-* gradle wrapper
+`gradle wrapper`
 
 Use the wrapper to build your project
 
-* ./gradlew build
+`./gradlew build`
 
 Create the docker container
 
-* sudo docker build -t directory-listing-rest-service .
+`sudo docker build -t directory-listing-rest-service .`
 
 ## Running ##
 * (With Java) java -jar ./build/libs/DirectoryListingREST-0.1.0.jar
