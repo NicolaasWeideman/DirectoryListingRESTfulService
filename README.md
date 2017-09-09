@@ -49,13 +49,19 @@ For obtaining the directory listing in HTML format:
 
 ### HTML ###
 Specifying HTML as the required format allows the service to be used through a web browser.
-After running the RESTful service, the service can be used by visiting *http://<ip>:8080/list?dpath=<path>* from a web browser, where <ip> is the local IP address of the host machine and <path> is the full path of the directory for which the directory listing is required. 
+After running the RESTful service, the service can be used by visiting *http://localhost:8080/list?dpath=<path>* from a web browser, where <path> is the full path of the directory for which the directory listing is required. 
  
 ### JSON ###
-Specifying JSON as the required format allows the service to be used within another application.
+Specifying JSON as the required format allows the service to be used from another application.
 The supplied JSON format can be parsed to obtain the information of the directory the listing was requested for. 
 
 ## Features ##
+
+### URL Parameters ###
+
+* dpath --- The full path of the directory for which the listing is required
+* page --- The page number of the directory listing (see pagination)
+* psize --- The number of entries per page
 
 ### Stateless ###
 The server does not store the state of any client, all information for obtaining specific resources is supplied within the parameters of the request URL.
@@ -63,7 +69,7 @@ The server does not store the state of any client, all information for obtaining
 ### Cache ###
 When a directory is accessed via the service, the result is stored within a cache.
 A [WatchService](https://docs.oracle.com/javase/7/docs/api/java/nio/file/WatchService.html) is also registered for this directory to determine the validity of the cache entry.
-If the WatchService detects a modification in the cached directory, it is removed from the cache and the WatchService for the directory in question is cancled.
+If the WatchService detects a modification in a cached directory, it is removed from the cache and the WatchService for the directory in question is cancled.
 
 ### Pagination ###
 To deal with large directory listings, pagination is implemented.
@@ -72,4 +78,4 @@ The page itself can be specified with the *page* parameter.
 
 ### Discoverability ###
 Each subdirectory within a directory listing contains a link to obtain a listing for the directory in question.
-The links to the first, last, previous and next pages for a directory listing are also returned.
+The links to the first, last, previous and next pages for a directory listing are returned both in the HTML/JSON and as a "link" header in the HTTP request.
