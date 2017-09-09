@@ -23,8 +23,12 @@ Create the docker container
 `sudo docker build -t directory-listing-rest-service .`
 
 ## Running ##
-* (With Java) java -jar ./build/libs/DirectoryListingREST-0.1.0.jar
-* (With Docker) sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service
+With Java
+
+`java -jar ./build/libs/DirectoryListingREST-0.1.0.jar`
+
+With Docker
+`sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service`
 
 ## Usage ##
 The project allows for users to obtain a directory listing of a specified path as either HTML, or JSON.
