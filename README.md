@@ -3,7 +3,7 @@
 ## Project Description ##
 A small cross-platform program that exposes a RESTful interface on port 8080 and allows a client application to obtain the full directory listing of a given directory path on the local filesystem.
 
-## Requirements ##
+## Installation Requirements ##
 * [Gradle](https://gradle.org/)
 * [Docker](https://www.docker.com/)
 
