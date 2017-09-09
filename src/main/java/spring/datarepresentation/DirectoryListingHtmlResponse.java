@@ -72,23 +72,22 @@ public class DirectoryListingHtmlResponse {
 
 	/* Create the links to the first, previous (if applicable), next (if applicable) and last pages. */
 	private String createRelationLinks(String url, int numPages, int pageNumber) {
-		UriComponentsBuilder ucb = UriComponentsBuilder.fromHttpUrl(url);
-		ucb.replaceQueryParam("page", 1);
-		String firstLink = createLink(ucb.toUriString(), "first");
+		String firstUrl = directoryListingResponse.getFirstLink();
+		String firstLink = createLink(firstUrl, "first");
 
-		ucb.replaceQueryParam("page", numPages);
-		String lastLink = createLink(ucb.toUriString(), "last");
+		String lastUrl = directoryListingResponse.getLastLink();
+		String lastLink = createLink(lastUrl, "last");
 
+		String prevUrl = directoryListingResponse.getPrevLink();
 		String prevLink = "";
-		if (pageNumber > 1) {
-			ucb.replaceQueryParam("page", (pageNumber - 1));
-			prevLink = createLink(ucb.toUriString(),"prev");
+		if (!prevUrl.isEmpty()) {
+			prevLink = createLink(prevUrl, "prev");		
 		}
 
+		String nextUrl = directoryListingResponse.getNextLink();
 		String nextLink = "";
-		if (pageNumber < numPages) {
-			ucb.replaceQueryParam("page", (pageNumber + 1));
-			nextLink = createLink(ucb.toUriString(),"next");
+		if (!nextUrl.isEmpty()) {
+			nextLink = createLink(nextUrl, "next");
 		}
 
 		return String.format("%s %s %s %s", firstLink, prevLink, nextLink, lastLink);
