@@ -35,8 +35,9 @@ With Docker
 The project allows for users to obtain a directory listing of a specified path as either HTML, or JSON.
 Specify the required format in the "accept" header of the HTTP request.
 For example:
-* *curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem* returns the directory listing of the root of the local file system (on the host machine) in JSON format
-* *curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem* returns the directory listing of the root of the local file system (on the host machine) in HTML format
+
+* `curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem` returns the directory listing of the root of the local file system (on the host machine) in JSON format
+* `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem` returns the directory listing of the root of the local file system (on the host machine) in HTML format
 
 ### HTML ###
 Specifying HTML as the required format allows the service to be used through a web browser.
