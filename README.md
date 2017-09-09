@@ -4,12 +4,16 @@
 A small cross-platform program that exposes a RESTful interface on port 8080 and allows a client application to obtain the full directory listing of a given directory path on the local filesystem.
 
 ## Installation Requirements ##
+This project requires the following tools to be installed in order to be built.
 * [Gradle](https://gradle.org/)
 * [Docker](https://www.docker.com/)
 
 ## Setup ##
-* gradle build wrapper
+Build the gradle wrapper
+* gradle wrapper
+Use the wrapper to build your project
 * ./gradlew build
+Create the docker container
 * sudo docker build -t directory-listing-rest-service .
 
 ## Running ##
