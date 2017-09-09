@@ -28,6 +28,7 @@ With Java
 `java -jar ./build/libs/DirectoryListingREST-0.1.0.jar`
 
 With Docker
+
 `sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service`
 
 ## Usage ##
