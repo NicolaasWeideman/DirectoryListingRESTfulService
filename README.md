@@ -13,9 +13,11 @@ This project requires the following tools to be installed in order to be built.
 Build the gradle wrapper
 
 * gradle wrapper
+
 Use the wrapper to build your project
 
 * ./gradlew build
+
 Create the docker container
 
 * sudo docker build -t directory-listing-rest-service .
