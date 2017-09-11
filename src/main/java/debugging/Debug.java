@@ -3,6 +3,11 @@ package debugging;
 import java.io.StringWriter;
 import java.io.PrintWriter;
 
+/**
+ * A class for debugging functions.
+ * @author N. H. Weideman
+ */
+
 public class Debug {
 
 	public static final boolean DEBUG = false;
