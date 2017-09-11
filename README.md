@@ -8,7 +8,7 @@ A small cross-platform program that exposes a RESTful interface on port 8080 and
 ## Installation Requirements ##
 This project requires the following tools to be installed in order to be built and used.
 
-* [Java] (https://www.java.com/en/)
+* [Java](https://www.java.com/en/)
 * [Gradle](https://gradle.org/)
 * [Docker](https://www.docker.com/)
 
@@ -16,11 +16,11 @@ This project requires the following tools to be installed in order to be built a
 Complete the following steps to build the project.
 
 1. Build the gradle wrapper
-`gradle wrapper`
+```gradle wrapper```
 1. Use the wrapper to compile the project
-`./gradlew build`
+```./gradlew build```
 1. Build the docker container
-`sudo docker build -t directory-listing-rest-service .`
+```sudo docker build -t directory-listing-rest-service .```
 
 ## Running the Project ##
 With Java
