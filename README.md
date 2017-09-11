@@ -33,9 +33,9 @@ The project can either be run with Java, or Docker.
 When running the project with Docker, it is required to mount the filesystem of the host in the docker container.
 This is achieved with the `-v /:/local_filesystem` flag.
 Specifically, it states that the directory `/` (the root directory) should be mounted at `/local_filesystem` in the docker container.
+When using the restful service, the local file system can then be found in the directory `/local_filesystem`.
 This also allows the user to allow only a subset of the local filesystem to be accessed.
 For example using the flag `-v /home:/local_filesystem/home` will mount only the `/home` directory and therefore only this directory can be accessed.
-When using the restful service, the local file system can then be found in the directory `/local_filesystem`.
 It is also required that the port of the docker container is mapped to a port on the host.
 Using the `-p 8080:8080` flag allows the RESTful service to be accessed from the outside.
 
