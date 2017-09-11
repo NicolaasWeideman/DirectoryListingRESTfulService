@@ -57,7 +57,7 @@ For obtaining the directory listing in HTML format (or use a web browser):
 
 ### HTML ###
 If the directory listing is required in HTML format, the service can be used through a web browser.
-After running the RESTful service, the service can be used by visiting `http://localhost:8080/list?dpath=/local_filesystem/<path>` from a web browser, where <path> is the full path of the directory for which the directory listing is required. 
+After running the RESTful service, the service can be used by visiting `http://localhost:8080/list?dpath=/local_filesystem/<path>` from a web browser, where `<path>` is the full path of the directory for which the directory listing is required. 
  
 ### JSON ###
 Specifying JSON as the required format allows the service to be used from another application.
