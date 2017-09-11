@@ -78,7 +78,7 @@ The server does not store the state of any client, all information for obtaining
 When a directory is accessed via the service, the result is stored within a cache.
 This allows the result to be obtained from this cache when accessing the same directory again.
 A [WatchService](https://docs.oracle.com/javase/7/docs/api/java/nio/file/WatchService.html) is also registered for this directory to determine the validity of the cache entry.
-If the WatchService detects a modification in a cached directory, it is removed from the cache and the WatchService for the directory in question is cancled.
+If the WatchService detects a modification in a cached directory, it is removed from the cache and the WatchService for the directory in question is canceled.
 
 ### Pagination ###
 To deal with large directory listings, pagination is implemented.
