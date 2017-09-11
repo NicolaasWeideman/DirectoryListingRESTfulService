@@ -2,6 +2,8 @@ package spring.directorylisting;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.io.IOException;
+import java.io.File;
+import java.nio.file.Path;
 import java.nio.file.FileSystems;
 import java.nio.file.FileSystem;
 import java.nio.file.Path;
@@ -43,8 +45,8 @@ public class DirectoryListingResultCache {
 	 * @param path The path of the directory listing result
 	 * @return The directory listing result if the path has been cached, NULL otherwise
 	 */
-	public DirectoryListingResult get(Path path) {
-		return cacheMap.get(path.toString());
+	public DirectoryListingResult get(String fileStr) {
+		return cacheMap.get(fileStr);
 	}
 
 	/**
@@ -53,18 +55,22 @@ public class DirectoryListingResultCache {
 	 * @param directoryListingResult The directory listing result to cache
 	 * @throws IOException If an I/O error occurs
 	 */
-	public void put(Path path, DirectoryListingResult directoryListingResult) throws IOException {
+	public void put(String fileStr, DirectoryListingResult directoryListingResult) throws IOException {
+		Path path = fileSystem.getPath(fileStr);
+		/* Obtaining the canonical path */
+		path = new File(path.toFile().getCanonicalPath()).toPath();
+
 		path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY);
-		Debug.debugln("Adding " + path + " to cache.");
-		cacheMap.put(path.toString(), directoryListingResult);
+		Debug.debugln("Adding " + fileStr + " to cache.");
+		cacheMap.put(fileStr, directoryListingResult);
 	}
 
 	/**
 	 * Checks if a path has a cached entry
 	 * @return True if the path has a cached entry, false otherwise
 	 */
-	public boolean contains(Path path) {
-		return cacheMap.containsKey(path.toString());
+	public boolean contains(String fileStr) {
+		return cacheMap.containsKey(fileStr);
 	}
 
 	/**

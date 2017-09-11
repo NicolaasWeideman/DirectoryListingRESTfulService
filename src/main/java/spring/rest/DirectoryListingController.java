@@ -69,6 +69,7 @@ public class DirectoryListingController {
 						
 			return responseEntity;
 		} catch (IOException ioe) {
+			Debug.debugStackTrace(ioe);
 			throw new NoSuchDirectoryException("Directory at " + dpath + " not found");
 		}
 	}
@@ -94,6 +95,7 @@ public class DirectoryListingController {
 			ResponseEntity<DirectoryListingResponse> responseEntity = new ResponseEntity<DirectoryListingResponse>(directoryListingResponse, HttpStatus.OK);
 			return responseEntity;
 		} catch (IOException ioe) {
+			Debug.debugStackTrace(ioe);
 			throw new NoSuchDirectoryException("Directory at " + dpath + " not found");
 		}
 	}

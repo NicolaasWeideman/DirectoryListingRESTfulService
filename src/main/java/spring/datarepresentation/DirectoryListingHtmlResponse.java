@@ -34,7 +34,11 @@ public class DirectoryListingHtmlResponse {
 
 		int numPages = directoryListingResponse.getNumPages();
 		int pageNumber = directoryListingResponse.getPageNumber();
+		String pagePosition = String.format("Page: %d/%d<br>\n", pageNumber, numPages);
 		String relationLinks = createRelationLinks(url, numPages, pageNumber);
+
+		sb.append("<br>\n");
+		sb.append(pagePosition);
 		sb.append(relationLinks + "<br>\n");
 
 		HtmlList<String> htmlDirectoryListingList = new HtmlList<String>();
@@ -65,6 +69,7 @@ public class DirectoryListingHtmlResponse {
 		}
 
 		sb.append(htmlDirectoryListingList);
+		sb.append(pagePosition);
 		sb.append(relationLinks + "<br>\n");
 
 		return sb.toString();

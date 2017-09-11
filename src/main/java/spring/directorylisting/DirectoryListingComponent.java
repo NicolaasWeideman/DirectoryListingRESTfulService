@@ -42,12 +42,15 @@ public class DirectoryListingComponent {
 	 */
 	public DirectoryListingResult getListing(String fullPathStr) throws IOException {
 		Path fullPath = fileSystem.getPath(fullPathStr); 
-		fullPath = fullPath.toRealPath();
+		/* Obtaining the canonical path */
+		File fullPathFile = fullPath.toFile().getCanonicalFile();
+		fullPathStr = fullPathFile.getCanonicalPath();
+		fullPath = new File(fullPathStr).toPath();
 
 		/* Check if the directory has been cached */
-		if (cache.contains(fullPath)) {
-			Debug.debugln("Obtained " + fullPath + " from cache.");
-			return cache.get(fullPath);
+		if (cache.contains(fullPathStr)) {
+			Debug.debugln("Obtained " + fullPathStr + " from cache.");
+			return cache.get(fullPathStr);
 		}
 	
 		LinkedList<DirectoryListingEntry> directoryEntries = new LinkedList<DirectoryListingEntry>();
@@ -69,16 +72,21 @@ public class DirectoryListingComponent {
 		DirectoryStream<Path> directoryStream = Files.newDirectoryStream(fullPath);	
 		for (Path path : directoryStream) {
 			File file = path.toFile();
+			/* Obtaining the canonical path */
+			path = new File(file.getCanonicalPath()).toPath();
 			String fileName = file.getName();
-			BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);	
-			DirectoryListingEntry directoryListingEntry = new DirectoryListingEntry(fileName, basicFileAttributes);
-			directoryEntries.add(directoryListingEntry);
+			/* Symlinks are broken in Docker, so we do not include them in our results. */
+			if (!Files.isSymbolicLink(path)) {
+				BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);	
+				DirectoryListingEntry directoryListingEntry = new DirectoryListingEntry(fileName, basicFileAttributes);
+				directoryEntries.add(directoryListingEntry);
+			}
 		}
 		directoryStream.close();
 		DirectoryListingResult directoryListingResult = new DirectoryListingResult(fullPathStr, directoryEntries);
 
 		/* Add the directory to the cache */
-		cache.put(fullPath, directoryListingResult);
+		cache.put(fullPathStr, directoryListingResult);
 		return directoryListingResult;
 	}
 
