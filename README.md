@@ -97,5 +97,5 @@ The links to the first, last, previous and next pages for a directory listing ar
 ### Symbolic Links ###
 A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) is a file that contains a reference to another file.
 As this reference is defined from within the local filesystem, it may become invalid when the local filesystem is mounted with Docker.
-Moreover, allowing symbolic links may allow to attempt to access a directory that was not mounted (see Running with Docker).
+Moreover, allowing symbolic links may allow a user to attempt to access a directory that was not mounted (see Running with Docker).
 For this reason, symbolic links are not supported in this project.
