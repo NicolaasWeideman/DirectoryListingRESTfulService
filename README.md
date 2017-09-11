@@ -15,12 +15,12 @@ This project requires the following tools to be installed in order to be built a
 ## Building the Project ##
 Complete the following steps to build the project.
 
-1. Build the gradle wrapper
-```gradle wrapper```
-1. Use the wrapper to compile the project
-```./gradlew build```
-1. Build the docker container
-```sudo docker build -t directory-listing-rest-service .```
+1. Build the gradle wrapper  
+`gradle wrapper`
+1. Use the wrapper to compile the project  
+`./gradlew build`
+1. Build the docker container  
+`sudo docker build -t directory-listing-rest-service .`
 
 ## Running the Project ##
 With Java
