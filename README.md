@@ -85,7 +85,7 @@ To deal with large directory listings, pagination is implemented.
 The user can specify the number of resources returned at a time by adding the `psize` parameter to the URL.
 The page itself can be specified with the `page` parameter.
 For example the request  
-`http:\\localhost:8080/list?dpath=/local_filesystem/tmp&page=2&psize=2`  
+`http://localhost:8080/list?dpath=/local_filesystem/tmp&page=2&psize=2`  
 returns the second page of the directory listing of the `tmp` directory on the local filesystem, when using two entries per page.
 
 ### Discoverability ###
