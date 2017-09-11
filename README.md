@@ -23,12 +23,12 @@ Complete the following steps to build the project.
 `sudo docker build -t directory-listing-rest-service .`
 
 ## Running the Project ##
-With Java
+The project can either be run with Java, or Docker.
 
+* Running with Java  
 `java -jar ./build/libs/DirectoryListingREST-0.1.0.jar`
 
-With Docker
-
+* Running with Docker  
 `sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service`
 
 ## Usage ##
