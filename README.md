@@ -31,8 +31,13 @@ The project can either be run with Java, or Docker.
 * Running with Docker  
 `sudo docker run -v /:/local_filesystem -p 8080:8080 -it --rm directory-listing-rest-service`
 
-## Usage ##
-The project allows for users to obtain a directory listing of a specified path.
+When running the project with Docker, it is required to mount the filesystem of the host in the docker container.
+This is achieved with the `-v /:/local_filesystem` flag.
+Specifically, it states that the directory `/` (the root directory) should be mounted at `/local_filesystem` in the docker container.
+When using the restful service, the local file system can then be found in the directory `/local_filesystem`.
+
+## Consuming the REST Service ##
+The project allows users to obtain a directory listing of a specified path.
 This is achieved by connecting to the host on port 8080.
 For the rest of this documentation we assume we are connecting to localhost, but any local IP address can also be used.
 The directory listing can be obtained as either HTML, or JSON.
@@ -48,8 +53,8 @@ For obtaining the directory listing in HTML format:
 * `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem`
 
 ### HTML ###
-Specifying HTML as the required format allows the service to be used through a web browser.
-After running the RESTful service, the service can be used by visiting *http://localhost:8080/list?dpath=<path>* from a web browser, where <path> is the full path of the directory for which the directory listing is required. 
+If the directory listing is required in HTML format, the service can be used through a web browser.
+After running the RESTful service, the service can be used by visiting `http://localhost:8080/list?dpath=/local_filesystem/<path>` from a web browser, where <path> is the full path of the directory for which the directory listing is required. 
  
 ### JSON ###
 Specifying JSON as the required format allows the service to be used from another application.
