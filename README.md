@@ -49,11 +49,11 @@ For example:
 
 For obtaining the directory listing in JSON format:
 
-* `curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem`
+* `curl --header 'accept: application/json' 'localhost:8080/list?dpath=/local_filesystem'`
 
 For obtaining the directory listing in HTML format (or use a web browser):
 
-* `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem`
+* `curl --header 'accept: text/html' 'localhost:8080/list?dpath=/local_filesystem'`
 
 ### HTML ###
 If the directory listing is required in HTML format, the service can be used through a web browser.
@@ -85,7 +85,7 @@ To deal with large directory listings, pagination is implemented.
 The user can specify the number of resources returned at a time by adding the `psize` parameter to the URL.
 The page itself can be specified with the `page` parameter.
 For example the request  
-`http:\\localhost/list?dpath=/local_filesystem/tmp&page=2&psize=2`  
+`http:\\localhost:8080/list?dpath=/local_filesystem/tmp&page=2&psize=2`  
 returns the second page of the directory listing of the `tmp` directory on the local filesystem, when using two entries per page.
 
 ### Discoverability ###
