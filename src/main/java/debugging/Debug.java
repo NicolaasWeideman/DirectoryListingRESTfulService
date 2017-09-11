@@ -29,7 +29,7 @@ public class Debug {
 			String stackTraceStr = stringWriter.toString();
 
 			String stackTraceDebugStr = stackTraceStr.replaceAll("\n", "\n" + DEBUG_PREFIX);
-			System.out.println(stackTraceDebugStr);
+			System.err.println(stackTraceDebugStr);
 		}
 	}
 	
