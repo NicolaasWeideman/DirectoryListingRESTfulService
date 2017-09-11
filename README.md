@@ -49,11 +49,11 @@ For example:
 
 For obtaining the directory listing in JSON format:
 
-* `curl --header 'accept: application/json' localhost:8080/list?dpath=/local_filesystem`
+* `curl --header 'accept: application/json' 'localhost:8080/list?dpath=/local_filesystem'`
 
 For obtaining the directory listing in HTML format (or use a web browser):
 
-* `curl --header 'accept: text/html' localhost:8080/list?dpath=/local_filesystem`
+* `curl --header 'accept: text/html' 'localhost:8080/list?dpath=/local_filesystem'`
 
 ### HTML ###
 If the directory listing is required in HTML format, the service can be used through a web browser.
