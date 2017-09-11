@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 
 public class Debug {
 
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 
 	private static final String DEBUG_PREFIX = "[DEBUG] ";
 
