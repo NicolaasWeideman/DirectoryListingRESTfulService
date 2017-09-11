@@ -6,25 +6,28 @@ This project was created for the [coding challenge](https://github.com/entersekt
 A small cross-platform program that exposes a RESTful interface on port 8080 and allows a client application to obtain the full directory listing of a given directory path on the local filesystem.
 
 ## Installation Requirements ##
-This project requires the following tools to be installed in order to be built.
+This project requires the following tools to be installed in order to be built and used.
 
+* [Java] (https://www.java.com/en/)
 * [Gradle](https://gradle.org/)
 * [Docker](https://www.docker.com/)
 
-## Setup ##
-Build the gradle wrapper
+## Building the Project ##
+Complete the following steps to build the project.
+
+1. Build the gradle wrapper
 
 `gradle wrapper`
 
-Use the wrapper to build your project
+1. Use the wrapper to compile the project
 
 `./gradlew build`
 
-Create the docker container
+1. Build the docker container
 
 `sudo docker build -t directory-listing-rest-service .`
 
-## Running ##
+## Running the Project ##
 With Java
 
 `java -jar ./build/libs/DirectoryListingREST-0.1.0.jar`
