@@ -3,7 +3,7 @@
 This project was created for the [coding challenge](https://github.com/entersekt/compsci_open-day_challenge_2017) hosted by [Entersekt](https://www.entersekt.com/).
 
 ## Project Description ##
-A small cross-platform program that exposes a RESTful interface on port 8080 and allows a client application to obtain the full directory listing of a given directory path on the local filesystem.
+This project is the implementation of a small cross-platform program that exposes a RESTful interface on port 8080 and allows a client application to obtain the full directory listing of a given directory path on the local filesystem.
 
 ## Installation Requirements ##
 This project requires the following tools to be installed in order to be built and used.
